@@ -65,9 +65,14 @@ fun main() {
                 val button = JButton(label).apply {
                     font = font.deriveFont(Font.BOLD, 16f)
                     addActionListener {
-                        println(label)
                         logic.onButtonPress(label)
                         refresh()
+
+                        if (label == "=") {
+                            println(" = ${resultField.text}")
+                        } else {
+                            print("$label ")
+                        }
                     }
                 }
                 buttonsPanel.add(button)
